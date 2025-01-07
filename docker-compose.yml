@@ -1,0 +1,24 @@
+services:
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pipeline-processor
+    restart: unless-stopped
+    environment:
+      # Pipeline Configuration
+      - PIPELINE_NUM_WORKERS=10
+      - PIPELINE_AGGREGATION_WINDOW=50
+      - PIPELINE_TASKS_PER_SECOND=100
+      - PIPELINE_BURST_SIZE=200
+      
+      # Service Configuration
+      - SERVICE_LOG_LEVEL=info
+      - SERVICE_DEBUG=false
+      - SERVICE_TIME_FORMAT=2006-01-02T15:04:05.000Z07:00
+      - SERVICE_PRETTY_LOG=true
+      
+      # Buffer Configuration
+      - BUFFER_INPUT_CHANNEL=1000
+      - BUFFER_RESULT_CHANNEL=1000
+    

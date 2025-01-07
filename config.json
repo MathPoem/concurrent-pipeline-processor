@@ -1,0 +1,18 @@
+{
+    "pipeline": {
+        "num_workers": 10,
+        "aggregation_window": 50,
+        "tasks_per_second": 100,
+        "burst_size": 200
+    },
+    "service": {
+        "log_level": "info",
+        "debug": false,
+        "time_format": "2006-01-02T15:04:05.000Z07:00",
+        "pretty_log": true
+    },
+    "buffer_sizes": {
+        "input_channel": 1000,
+        "result_channel": 1000
+    }
+} 
